@@ -19,6 +19,8 @@ call vundle#begin()
 " the plugin's Plugin command.
 
 Plugin 'gmarik/Vundle.vim'
+Plugin 'kirtgoh/vim-cpp-syntax'
+Plugin 'kirtgoh/vim-kgoh-colorscheme'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                        turn on filetype plugins                         "
@@ -28,3 +30,16 @@ call vundle#end()
 " Enable detection, plugins and indenting in one step
 " This needs to come AFTER the Plugin commands!
 filetype plugin indent on
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                            General settings                             "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" DISPLAY SETTINGS
+colorscheme kgoh	" sets the colorscheme
+set background=light
+
+" Switch syntax highlighting on, when the terminal has colors
+if &t_Co > 2 || has("gui_running")
+  syntax on
+endif
