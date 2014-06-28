@@ -8,3 +8,10 @@ if [[ ! -a ~/.vimrc ]]
 then
 	ln -s $dotfiles_dir/vim/vimrc.vim ~/.vimrc
 fi
+
+if [[ ! -a ~/.gitignore_global ]]
+then
+	ln -s $dotfiles_dir/misc/gitignore_global ~/.gitignore_global
+fi
+
+source $dotfiles_dir/gitconfig_setup.sh
