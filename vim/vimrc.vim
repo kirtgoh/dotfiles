@@ -24,6 +24,7 @@ Plugin 'kirtgoh/vim-kgoh-colorscheme'
 " vim-ariline needed to show git branch
 Plugin 'tpope/vim-fugitive'
 Plugin 'bling/vim-airline'
+Plugin 'Lokaltog/vim-easymotion'
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -138,3 +139,9 @@ let g:airline_symbols.branch = '⎇'
 let g:airline_symbols.paste = 'Þ'
 "let g:airline_symbols.paste = '∥'
 let g:airline_symbols.whitespace = 'Ξ'
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                               easymotion                                "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+let g:EasyMotion_leader_key = '<Leader>e'
