@@ -25,6 +25,7 @@ Plugin 'kirtgoh/vim-kgoh-colorscheme'
 Plugin 'tpope/vim-fugitive'
 Plugin 'bling/vim-airline'
 Plugin 'Lokaltog/vim-easymotion'
+Plugin 'FSwitch'
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -145,3 +146,26 @@ let g:airline_symbols.whitespace = 'Ξ'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 let g:EasyMotion_leader_key = '<Leader>e'
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                                fswitch                                  "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Switch to the file and load it into the current window
+nnoremap <silent> <Leader>oh :FSHere<cr>
+" Switch to the file and load it into the window on the right
+nnoremap <silent> <Leader>or :FSRight<cr>
+" Switch to the file and load it into a new window split on the right
+nnoremap <silent> <Leader>oR :FSSplitRight<cr>
+" Switch to the file and load it into the window on the left
+nnoremap <silent> <Leader>ol :FSLeft<cr>
+" Switch to the file and load it into a new window split on the left
+nnoremap <silent> <Leader>oL :FSSplitLeft<cr>
+" Switch to the file and load it into the window above
+nnoremap <silent> <Leader>ot :FSAbove<cr>
+" Switch to the file and load it into a new window split above
+nnoremap <silent> <Leader>oT :FSSplitAbove<cr>
+" Switch to the file and load it into the window below
+nnoremap <silent> <Leader>ob :FSBelow<cr>
+" Switch to the file and load it into a new window split below
+nnoremap <silent> <Leader>oB :FSSplitBelow<cr>
