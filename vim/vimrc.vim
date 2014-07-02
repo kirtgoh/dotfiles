@@ -65,7 +65,11 @@ endif
 set wildmode=longest,list,full
 set wildmenu            " completion with menu
 " This changes the default display of tab and CR chars in list mode
-set listchars=tab:▸\ ,eol:¬
+" but symbols below does not display correctly in win7
+if has("win32")
+else
+  set listchars=tab:▸\ ,eol:¬
+endif
 
 " EDITOR SETTINGS
 set ignorecase          " case insensitive searching
@@ -134,12 +138,23 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline#extensions#tabline#buffer_nr_show = 1
 
-let g:airline_symbols.linenr = '␤'
-let g:airline_symbols.branch = '⎇'
-"let g:airline_symbols.paste = 'ρ'
-let g:airline_symbols.paste = 'Þ'
-"let g:airline_symbols.paste = '∥'
-let g:airline_symbols.whitespace = 'Ξ'
+" symbols does not diaplsy correctly in win7
+if has("win32")
+else
+  let g:airline_symbols.linenr = '␤'
+  let g:airline_symbols.branch = '⎇'
+  ""let g:airline_symbols.paste = 'ρ'
+  let g:airline_symbols.paste = 'Þ'
+  ""let g:airline_symbols.paste = '∥'
+  let g:airline_symbols.whitespace = 'Ξ'
+endif
+
+" Close the current buffer and move to the previous one
+" This replicates the idea of closing a tab
+nnoremap <leader>bq :bp <BAR> bd #<CR>
+
+" Show all open buffers and their status
+nnoremap <leader>bl :ls<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                               easymotion                                "
