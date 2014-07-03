@@ -26,6 +26,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'bling/vim-airline'
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'FSwitch'
+Plugin 'YankRing.vim'
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -184,3 +185,21 @@ nnoremap <silent> <Leader>oT :FSSplitAbove<cr>
 nnoremap <silent> <Leader>ob :FSBelow<cr>
 " Switch to the file and load it into a new window split below
 nnoremap <silent> <Leader>oB :FSSplitBelow<cr>
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                                yankring                                 "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+let g:yankring_history_dir = '$HOME/tmp/vim'
+" this is so that single char deletes don't end up in the yankring
+let g:yankring_min_element_length = 2 
+let g:yankring_window_height = 14
+nnoremap <leader>r :YRShow<CR>
+
+" this makes Y yank from the cursor to the end of the line, which makes more
+" sense than the default of yanking the whole current line (we can use yy for
+" that)
+function! YRRunAfterMaps()
+    nnoremap Y   :<C-U>YRYankCount 'y$'<CR>
+endfunction
+
