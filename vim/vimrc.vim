@@ -27,6 +27,14 @@ Plugin 'bling/vim-airline'
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'FSwitch'
 Plugin 'YankRing.vim'
+if has("win32")
+" YouCompleteMe for windows
+" Taken form https://bitbucket.org/Haroogan/vim-youcompleteme-for-windows/src
+" For more info, see: https://github.com/Valloric/YouCompleteMe/wiki/Windows-Installation-Guide 
+  Plugin 'kirtgoh/vim-ycm-windows'
+else
+  Plugin 'Valloric/YouCompleteMe'
+endif
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -43,6 +51,11 @@ filetype plugin indent on
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " DISPLAY SETTINGS
+if has("gui_running")
+  winpos 325 235
+  set lines=40 columns=160
+endif
+
 colorscheme kgoh	" sets the colorscheme
 set background=light	" enable for light terminals
 set t_Co=256		" enable 256 color terminals 
@@ -203,3 +216,26 @@ function! YRRunAfterMaps()
     nnoremap Y   :<C-U>YRYankCount 'y$'<CR>
 endfunction
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                              YouCompleteMe                              "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" global c++ compile flags config
+if has("win32")
+  let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/vim-ycm-windows/third_party/ycmd/cpp/.ycm_extra_conf.py'
+else
+  let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/.ycm_extra_conf.py'
+endif
+
+let g:ycm_warning_symbol = '*>'
+let g:ycm_confirm_extra_conf = 0
+
+let g:ycm_autoclose_preview_window_after_completion=1
+"let g:ycm_autoclose_preview_window_after_insertion=1 
+
+let g:ycm_always_populate_location_list = 1
+"let g:ycm_collect_identifiers_from_tags_files = 1
+
+nnoremap <leader>y :YcmForceCompileAndDiagnostics<CR>
+nnoremap <leader><leader>d :YcmCompleter GoToDefinition<CR>
+nnoremap <leader><leader>c :YcmCompleter GoToDeclaration<CR>
