@@ -7,7 +7,7 @@ set nocompatible
 " Needed for vundle, will be turned on after vundle inits
 filetype off
 
-" Setup vundle 
+" Setup vundle
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
@@ -30,11 +30,12 @@ Plugin 'YankRing.vim'
 if has("win32")
 " YouCompleteMe for windows
 " Taken form https://bitbucket.org/Haroogan/vim-youcompleteme-for-windows/src
-" For more info, see: https://github.com/Valloric/YouCompleteMe/wiki/Windows-Installation-Guide 
+" For more info, see: https://github.com/Valloric/YouCompleteMe/wiki/Windows-Installation-Guide
   Plugin 'kirtgoh/vim-ycm-windows'
 else
   Plugin 'Valloric/YouCompleteMe'
 endif
+Plugin 'SirVer/ultisnips'
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -58,7 +59,7 @@ endif
 
 colorscheme kgoh	" sets the colorscheme
 set background=light	" enable for light terminals
-set t_Co=256		" enable 256 color terminals 
+set t_Co=256		" enable 256 color terminals
 set laststatus=2	" the statusline is now always shown
 set number		" enable line numbers
 set noshowmode          " no show mode in status bar (insert/replace/...)
@@ -205,7 +206,7 @@ nnoremap <silent> <Leader>oB :FSSplitBelow<cr>
 
 let g:yankring_history_dir = '$HOME/tmp/vim'
 " this is so that single char deletes don't end up in the yankring
-let g:yankring_min_element_length = 2 
+let g:yankring_min_element_length = 2
 let g:yankring_window_height = 14
 nnoremap <leader>r :YRShow<CR>
 
@@ -231,7 +232,7 @@ let g:ycm_warning_symbol = '*>'
 let g:ycm_confirm_extra_conf = 0
 
 let g:ycm_autoclose_preview_window_after_completion=1
-"let g:ycm_autoclose_preview_window_after_insertion=1 
+"let g:ycm_autoclose_preview_window_after_insertion=1
 
 let g:ycm_always_populate_location_list = 1
 "let g:ycm_collect_identifiers_from_tags_files = 1
@@ -239,3 +240,12 @@ let g:ycm_always_populate_location_list = 1
 nnoremap <leader>y :YcmForceCompileAndDiagnostics<CR>
 nnoremap <leader><leader>d :YcmCompleter GoToDefinition<CR>
 nnoremap <leader><leader>c :YcmCompleter GoToDeclaration<CR>
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                                UltiSnips                                "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" we can't use <tab> as our snippet key since we use that with YouCompleteMe
+let g:UltiSnipsSnippetsDir         = $HOME . '/dotfiles/vim/UltiSnips'
+let g:UltiSnipsExpandTrigger       = "<c-s>"
+let g:UltiSnipsListSnippets        = "<c-m-s>"
