@@ -36,6 +36,7 @@ else
   Plugin 'Valloric/YouCompleteMe'
 endif
 Plugin 'SirVer/ultisnips'
+Plugin 'gerw/vim-HiLinkTrace' 
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
