@@ -36,8 +36,9 @@ else
   Plugin 'Valloric/YouCompleteMe'
 endif
 Plugin 'SirVer/ultisnips'
-Plugin 'gerw/vim-HiLinkTrace' 
-
+Plugin 'gerw/vim-HiLinkTrace'
+Plugin 'Rykka/colorv.vim'
+Plugin 'godlygeek/tabular'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                        turn on filetype plugins                         "
