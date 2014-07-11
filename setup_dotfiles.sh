@@ -14,4 +14,10 @@ then
 	ln -s $dotfiles_dir/misc/gitignore_global ~/.gitignore_global
 fi
 
+# Private UltiSnips folder setup
+if [[ ! -a ~/.vim/UltiSnips ]]
+then
+	ln -s $dotfiles_dir/vim/UltiSnips ~/.vim/UltiSnips
+fi
+
 source $dotfiles_dir/gitconfig_setup.sh

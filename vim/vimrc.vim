@@ -36,6 +36,7 @@ else
   Plugin 'Valloric/YouCompleteMe'
 endif
 Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
 Plugin 'gerw/vim-HiLinkTrace'
 Plugin 'Rykka/colorv.vim'
 Plugin 'godlygeek/tabular'
@@ -52,6 +53,11 @@ filetype plugin indent on
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                            General settings                             "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Home away from home. We store some config files and snippets here and the
+" whole dotfiles dir is a git repo. Should be the last entry in rtp (for
+" UltiSnips).
+set rtp+=$HOME/dotfiles/vim
 
 " DISPLAY SETTINGS
 if has("gui_running")
@@ -249,5 +255,4 @@ nnoremap <leader><leader>c :YcmCompleter GoToDeclaration<CR>
 
 " we can't use <tab> as our snippet key since we use that with YouCompleteMe
 let g:UltiSnipsSnippetsDir         = $HOME . '/dotfiles/vim/UltiSnips'
-let g:UltiSnipsExpandTrigger       = "<c-s>"
-let g:UltiSnipsListSnippets        = "<c-m-s>"
+let g:UltiSnipsExpandTrigger       = "<c-l>"

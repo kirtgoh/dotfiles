@@ -1,3 +1,59 @@
+snippet lic "Software Lisence" b
+//=====================================================================================
+// ${1:FILENAME} - ${2:DESCRIPTION}
+//
+// Copyright (C) 2014 Kirt Goh <kirtgoh@gmail.com>
+//=====================================================================================
+
+
+endsnippet
+
+snippet once "Include guard" b
+#ifndef ${1:FOO_H_HDYSNUYW}
+#define $1
+
+$2
+
+#endif /* $1 */
+endsnippet
+
+snippet todo "TODO reminder" b
+//TODO: ${1:desc} `!v strftime("%c")`
+endsnippet
+
+snippet error "ERROR declare" b
+#define ERROR(str) ${1:std::cerr}<<"[ERROR ("<<__FILE__<<":"<<__LINE__<<")]: "<<str<<std::endl;
+endsnippet
+
+snippet debug "DEBUG declare" b
+#define DEBUG(str) ${1:std::cerr}<< str <<std::endl;
+endsnippet
+
+snippet debugn "DEBUGN declare" b
+#define DEBUG(str) ${1:std::cerr}<< str <<std::endl;
+endsnippet
+
+snippet print "PRINT declare" b
+#define PRINT(str) ${1:std::cout}<< str <<std::endl;
+endsnippet
+
+snippet printn "PRINTN declare" b
+#define PRINT(str) ${1:std::cout}<< str <<std::endl;
+endsnippet
+
+snippet kgoh "Code Modified declare"
+//MOD: `echo $USER` ${1:desc} `!v strftime("%c")`
+$2
+//END_MOD
+endsnippet
+
+snippet for "for loop"
+for (size_t ${1:i} = 0; $1 < $2; $1++)
+{
+	$3
+}
+
+endsnippet
 
 snippet class "class .. (class)"
 class ${1:`!p snip.rv = snip.basename or "name"`} {
