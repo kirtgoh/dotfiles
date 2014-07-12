@@ -40,6 +40,7 @@ Plugin 'honza/vim-snippets'
 Plugin 'gerw/vim-HiLinkTrace'
 Plugin 'Rykka/colorv.vim'
 Plugin 'godlygeek/tabular'
+Plugin 'derekwyatt/vim-protodef'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                        turn on filetype plugins                         "
