@@ -41,6 +41,13 @@ Plugin 'gerw/vim-HiLinkTrace'
 Plugin 'Rykka/colorv.vim'
 Plugin 'godlygeek/tabular'
 Plugin 'derekwyatt/vim-protodef'
+Plugin 'tomtom/tcomment_vim'
+" requires compilation
+if has("win32")
+" requires msvcrt-ruby192.dll, rename 191 version carshed under win7
+else
+  Plugin 'wincent/Command-T'
+endi
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                        turn on filetype plugins                         "
