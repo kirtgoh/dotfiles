@@ -4,6 +4,10 @@
 
 set nocompatible
 
+let $LANG = 'en'      "set message language
+set langmenu=en       "set menu's language of gvim
+set encoding=utf-8
+
 " Needed for vundle, will be turned on after vundle inits
 filetype off
 
@@ -48,6 +52,8 @@ if has("win32")
 else
   Plugin 'wincent/Command-T'
 endi
+Plugin 'scrooloose/syntastic'
+Plugin 'Valloric/ListToggle'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                        turn on filetype plugins                         "
@@ -232,6 +238,24 @@ nnoremap <leader>r :YRShow<CR>
 function! YRRunAfterMaps()
     nnoremap Y   :<C-U>YRYankCount 'y$'<CR>
 endfunction
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                                ListToggle                               "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:lt_location_list_toggle_map = '<leader>L'
+let g:lt_quickfix_list_toggle_map = '<leader>q'
+
+let g:lt_height = 10
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                                syntastic                                "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+let g:syntastic_error_symbol = '✗'
+let g:syntastic_warning_symbol = '⚠'
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_python_checkers = ['flake8']
+let g:syntastic_python_flake8_args = '--select=F,C9 --max-complexity=10'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                              YouCompleteMe                              "
