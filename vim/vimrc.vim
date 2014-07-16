@@ -54,6 +54,9 @@ else
 endi
 Plugin 'scrooloose/syntastic'
 Plugin 'Valloric/ListToggle'
+" Seems more active than perl-based latexmk
+Plugin 'xuhdev/vim-latex-live-preview'
+Plugin 'jcf/vim-latex'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                        turn on filetype plugins                         "
@@ -136,6 +139,12 @@ set shortmess=a
 " gqap.
 set textwidth=80
 
+" turns on spell checkout when edit tex file
+autocmd BufNewFile,BufRead *.tex set spell
+
+" We want our cross-machine spell file to be used
+set spellfile=$HOME/dotfiles/vim/spell/en.latin1.add
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                            custom mappings                              "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -160,6 +169,18 @@ nnoremap <leader>l :bnext<cr>
 inoremap jk <Esc>
 vnoremap jk <Esc>
 
+" Toggle and untoggle spell checking
+noremap <leader>ss :setlocal spell! spelllang=en_us<cr>
+
+" spelling shortcuts using <leader>
+" ]s next misspelled word
+" [s previous misspelled word
+" zg add to dict
+" z= get suggestions
+noremap <leader>sn ]s
+noremap <leader>sp [s
+noremap <leader>sa zg
+noremap <leader>su z=
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                Airline                                  "
@@ -288,3 +309,13 @@ nnoremap <leader><leader>c :YcmCompleter GoToDeclaration<CR>
 " we can't use <tab> as our snippet key since we use that with YouCompleteMe
 let g:UltiSnipsSnippetsDir         = $HOME . '/dotfiles/vim/UltiSnips'
 let g:UltiSnipsExpandTrigger       = "<c-l>"
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                            latex-live-preview                           "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+if has("win32")
+  let g:livepreview_previewer = 'D:\CTEX\CTeX\ctex\bin\SumatraPDF.exe'
+else
+  let g:livepreview_previewer = 'evince'
+endif
+
