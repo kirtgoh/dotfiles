@@ -47,11 +47,8 @@ Plugin 'godlygeek/tabular'
 Plugin 'derekwyatt/vim-protodef'
 Plugin 'tomtom/tcomment_vim'
 " requires compilation
-if has("win32")
-" requires msvcrt-ruby192.dll, rename 191 version carshed under win7
-else
-  Plugin 'wincent/Command-T'
-endi
+" For windows, the name of the DLL must match the Ruby version Vim was compiled with
+Plugin 'wincent/Command-T'
 Plugin 'scrooloose/syntastic'
 Plugin 'Valloric/ListToggle'
 " Seems more active than perl-based latexmk
@@ -272,8 +269,8 @@ let g:lt_height = 10
 "                                syntastic                                "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-let g:syntastic_error_symbol = '✗'
-let g:syntastic_warning_symbol = '⚠'
+"let g:syntastic_error_symbol = '✗'
+"let g:syntastic_warning_symbol = '⚠'
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_python_checkers = ['flake8']
 let g:syntastic_python_flake8_args = '--select=F,C9 --max-complexity=10'
