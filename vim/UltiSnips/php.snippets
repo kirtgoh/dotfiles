@@ -1,0 +1,62 @@
+global !p
+def x(snip):
+	if snip.ft.startswith("x"):
+		snip.rv = '/'
+	else:
+		snip.rv = ""
+endglobal
+
+snippet php "PHP region"
+<?php
+	${1}
+?>
+endsnippet
+
+snippet xhtml "DocType XHTML 1.0 Transitional" b
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>${1:Your Title}</title>
+</head>
+<body>
+	${2}
+</body>
+
+endsnippet
+
+snippet div "XHTML <div>" w
+<div`!p snip.rv=' id="' if t[1] else ""`${1:name}`!p snip.rv = '"' if t[1] else ""``!p snip.rv=' class="' if t[2] else ""`${2:name}`!p snip.rv = '"' if t[2] else ""`>
+	$0
+</div>
+endsnippet
+
+snippet link "XHTML <link>" w
+<link rel="${1:stylesheet}" href="${2:/css/master.css}" type="text/css" media="${3:screen}" title="${4:no title}" charset="${5:utf-8}"`!p x(snip)`>
+endsnippet
+
+snippet h1 "XHTML H1" b
+<h1>${1}</h1>
+endsnippet
+
+snippet href "XHTML href" w
+<a href=${1:"index.php"}>${2}</a>
+endsnippet
+
+snippet ul "unordered list" w
+<ul>
+$0
+</ul>
+endsnippet
+
+snippet li "list item" w
+<li>$0</li>
+endsnippet
+
+snippet h2 "XHTML h2" w
+<h2>$0</h2>
+endsnippet
+
+snippet p "XHTML p" w
+<p>$0</p>
+endsnippet

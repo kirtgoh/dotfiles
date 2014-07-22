@@ -20,6 +20,11 @@ then
 	ln -s $dotfiles_dir/vim/UltiSnips ~/.vim/UltiSnips
 fi
 
+if [[ ! -a ~/.latexmkrc ]]
+then
+	ln -s $dotfiles_dir/misc/latexmkrc.win ~/.latexmkrc
+fi
+
 platform=$(uname)
 
 # Naturally, macvim needs to be installed for this to work

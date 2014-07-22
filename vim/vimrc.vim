@@ -53,7 +53,6 @@ Plugin 'scrooloose/syntastic'
 Plugin 'Valloric/ListToggle'
 " Seems more active than perl-based latexmk
 Plugin 'xuhdev/vim-latex-live-preview'
-Plugin 'jcf/vim-latex'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                        turn on filetype plugins                         "
@@ -75,7 +74,7 @@ set rtp+=$HOME/dotfiles/vim
 
 " DISPLAY SETTINGS
 if has("gui_running")
-  winpos 325 235
+  winpos 270 98 
   set lines=40 columns=160
 endif
 
@@ -288,6 +287,8 @@ endif
 
 let g:ycm_warning_symbol = '*>'
 let g:ycm_confirm_extra_conf = 0
+let g:ycm_complete_in_comments = 1
+let g:ycm_min_num_of_chars_for_completion = 1
 
 let g:ycm_autoclose_preview_window_after_completion=1
 "let g:ycm_autoclose_preview_window_after_insertion=1
@@ -315,4 +316,3 @@ if has("win32")
 else
   let g:livepreview_previewer = 'evince'
 endif
-
