@@ -52,8 +52,7 @@ Plugin 'wincent/Command-T'
 Plugin 'scrooloose/syntastic'
 Plugin 'Valloric/ListToggle'
 " Seems more active than perl-based latexmk
-Plugin 'xuhdev/vim-latex-live-preview'
-Plugin 'jcf/vim-latex'
+"Plugin 'xuhdev/vim-latex-live-preview'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                        turn on filetype plugins                         "
@@ -315,4 +314,3 @@ if has("win32")
 else
   let g:livepreview_previewer = 'evince'
 endif
-
