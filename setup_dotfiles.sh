@@ -25,6 +25,9 @@ then
 	ln -s $dotfiles_dir/misc/latexmkrc.unix ~/.latexmkrc
 fi
 
+# -p says to create the dir if it doesn't exist already
+mkdir -p $HOME/tmp/vim
+
 platform=$(uname)
 
 # Naturally, macvim needs to be installed for this to work
