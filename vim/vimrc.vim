@@ -53,6 +53,7 @@ Plugin 'scrooloose/syntastic'
 Plugin 'Valloric/ListToggle'
 " Seems more active than perl-based latexmk
 "Plugin 'xuhdev/vim-latex-live-preview'
+Plugin 'majutsushi/tagbar'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                        turn on filetype plugins                         "
@@ -314,3 +315,16 @@ if has("win32")
 else
   let g:livepreview_previewer = 'evince'
 endif
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                                tagbar                                   "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+let g:tagbar_left = 1
+let g:tagbar_sort = 0
+if has("gui_macvim")
+  let g:tagbar_ctags_bin = '/usr/local/bin/ctags'
+endif
+
+nnoremap <F4> :TagbarToggle<cr><c-w>=
+

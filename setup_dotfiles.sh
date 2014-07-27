@@ -9,6 +9,17 @@ then
 	ln -s $dotfiles_dir/vim/vimrc.vim ~/.vimrc
 fi
 
+if [[ ! -a ~/.gdbrc ]]
+then
+  ln -s $script_dir/misc/gdbrc ~/.gdbrc
+fi
+
+if [[ ! -a ~/.cgdb/cgdbrc ]]
+then
+  mkdir ~/.cgdb
+  ln -s $script_dir/misc/cgdbrc ~/.cgdb/cgdbrc
+fi
+
 if [[ ! -a ~/.gitignore_global ]]
 then
 	ln -s $dotfiles_dir/misc/gitignore_global ~/.gitignore_global
