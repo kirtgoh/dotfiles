@@ -1,0 +1,138 @@
+snippet docls "Document Class" b
+\documentclass{${1:article}}
+
+endsnippet
+
+snippet pkg "Use Packeg" b
+\usepackage{${1:package}}
+
+endsnippet
+
+snippet docu "Document" b
+\begin{document}
+$1
+\end{document}
+endsnippet
+
+snippet begin "Begin End self Definition" 
+\begin{${1:Your}}
+$2
+\end{$1}
+endsnippet
+
+snippet relyon "rely on"
+${1:Modern DRAM systems} rely on ${2:memory controllers} that ${3:emply
+out-of-order schudeuling} to ${4:maximize row access locality} and
+${5:bank-level parallelism} which in turn ${6:maximizes DRAM bandwidth}
+endsnippet
+
+snippet important "important" 
+This is especially important ${1:in graphics processing unit (GPU)
+architectures}, where ${2:the large quantity of parallelism} places ${3:a heavy
+demand} on ${4:the memory system.}
+endsnippet
+
+snippet propose "we propose"
+In this paper, we propose a ${1:complexity-effective} solution to ${2:DRAM
+request scheduling} which recovers ${3:most of the performance loss} incurred by
+${4:a naive in-order first-in first-out (FIFO) DRAM scheduler} compared to
+${5:an aggressive out-of-order DRAM scheduler.}
+endsnippet
+
+snippet observe "we observe"
+We observe that ${1:the memory request stream from individual GPU "shader cores"
+tends to have sufficient row access locality to maximize DRAM efficieny in most
+applications without significant reordering.}
+
+We observe that ${1:the average utilization of row-buffers dropped in 4-core CMP
+systems when compared to a 1-core system. For multi-threaded applications, the
+average row-buffer utilization dropped from nearly 30% in the 1-core setup to
+18% for the 4-core setup... This points towards the urgent need to address this
+problem since application performance is sensitive to DRAM access latency, and
+DRAM power in modern server systems accounts for nearly 40% of total system
+power.}
+endsnippet
+
+snippet address "to address"
+To address this, we employ ${1:an interconnection network arbitration scheme}
+that preserves ${2:the row access locality of individual memory request streams}
+and, in doing so, achieves ${3:DRAM efficiency} and ${4:system performance}
+close to that achievable by using ${5:out-of-order memory request scheduling}
+while doing so with a simple desgin.
+endsnippet
+
+snippet define "we define"
+${1:DRAM efficiency}, which we define as the percentage of ${2:time ..} divided by
+the {3:time...}, has a direct correlation with the achiveable ${4:off-chip
+bandwidth}
+endsnippet
+
+snippet inorderto "in order to"
+In order to ${1:maximize DRAM efficiency}, a variety of ${2:memory controllers}
+have been designed for ${3:superscalar and multi-core processors}, all based
+around the principle of ${4:out-of-order scheduling}, where ${5:the memory
+controller will search through a window of pending DRAM requests to make a
+scheduling decision} that will maximize the ${6:row access locality and
+bank-level parallelism}.
+endsnippet
+
+snippet overhead "over head"
+Each time ${1:a DRAM bank switches rows}, it must pay ${2:a precharge and
+activate overhead during which time it is unavaiable to service pending
+requests} and thus ${3:unable to immediately do any useful work. Poor row access
+locality results in frequent switching and can drastically reduce DRAM
+efficiency resulting in a loss of performance.}
+endsnippet
+
+snippet observation "observation"
+In this paper, we make the key obseration that ${1:emerging highly-parallel
+non-graphics applications run on these GPU architectures typically have high
+DRAM row buffer access locality memory access patterns at the level of
+individual shader cores.} However, ${2:the interconnection network that connects
+the multiple shader cores to the DRAM controllers serves to interleave the
+memory request streams from multple shader cores, destroying their row access
+locality.}
+endsnippet
+
+snippet illustrate "illustrate"
+We illustrate this in Figure ${1:1, measuring the row access locality of the
+memory request streams from the individual shader cores before they feed into
+the interconnection network (Pre-Icnt Row Access Locality) and that of the
+memory request streams received at each memory controller after they come out of
+the interconnection network (Post-Icnt Row Access Locality).} In this figure,
+${2:we fix the number of memory channels to four and increase the number of
+shader cores to show that, as the ratio of shader cores to DRAM controllers on a
+GPU chip increases with current trends, the gap between the pre-interconnect and
+pos-interconnect row access locality clearly becomes wider and wider.}
+
+Figure ? shows the trend of steeply dropping row-buffer hit rates as the number
+of threads simultaneously accessing memory goes up. We see average rates drop
+from over 60% for a 1 core system to 35% for a 16 core system. We also see that
+whenever a row is fetched into the row-buffer, the number of times it is useed
+before being closed due to a conflict is often just one ore tow. This indicates
+that even on multi-threaded applications with high locality and good average
+row-buffer hit rates (for example, cg), a large number of pages still don't have
+much reuse in the row-buffer.
+endsnippet
+
+snippet outofordernature "out of order nature"
+However, the nature of out-of-order scheduling is that it is area-intensive,
+requiring, in the worst case, associative comparision of all requests in a DRAM
+controller queue every cycle, therefore requiring a set of comparators for each
+entry in the queue. Compared to in-order scheduling, which only requires a
+simple FIFO queue, the area needed to implement out-of-order scheduling can be
+significant.
+endsnippet
+
+snippet scheduling "scheduler designs"
+There exist many ${1:DRAM scheduler designs proposed for multi-core systems.}
+The primary focus of these designs revolve around the principles of
+${2:providing fairness or Quality-of-Service (QoS) for different threads and
+cores competing for shared off-chip bandwidth.}
+endsnippet
+
+snippet firstwork "first work"
+To the best of our knowledge, this is the first work ${1:that examines the problem
+of efficent DRAM access scheduling in a massively multithreaded GPU architecture
+with tens of thousands of threads.}
+endsnippet

@@ -54,6 +54,8 @@ Plugin 'Valloric/ListToggle'
 " Seems more active than perl-based latexmk
 "Plugin 'xuhdev/vim-latex-live-preview'
 Plugin 'majutsushi/tagbar'
+Plugin 'Rename'
+Plugin 'sjl/gundo.vim'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                        turn on filetype plugins                         "
@@ -112,19 +114,21 @@ endif
 set ignorecase          " case insensitive searching
 set smartcase           " but become case sensitive if you type uppercase characters
 " no set, no difference ?
-"set autoindent          " on new lines, match indent of previous line
+" set autoindent          " on new lines, match indent of previous line
 "set copyindent          " copy the previous indentation on autoindenting
-"set cindent             " smart indenting for c-like code
+" set cindent             " smart indenting for c-like code
 "set cino=b1,g0,N-s,t0,(0,W4  " see :h cinoptions-values
 set bs=indent,eol,start " Allow backspacing over everything in insert mode
 
-set tabstop=2           " number of spaces a tab counts for
-set shiftwidth=2        " spaces for autoindents
+set tabstop=4           " number of spaces a tab counts for
+set shiftwidth=4        " spaces for autoindents
 "set softtabstop=2
 "set shiftround          " makes indenting a multiple of shiftwidth
-set expandtab           " turn a tab into spaces
+" set expandtab           " turn a tab into spaces
 
 " misc settings
+set foldmethod=marker
+set foldmarker={,}
 
 " tries to avoid those annoying "hit enter to continue" messages
 " if it still doesn't help with certain commands, add a second <cr>
@@ -141,6 +145,9 @@ autocmd BufNewFile,BufRead *.tex set spell
 
 " We want our cross-machine spell file to be used
 set spellfile=$HOME/dotfiles/vim/spell/en.latin1.add
+
+" vim latex type is plaintex 
+let g:tex_flavor='latex'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                            custom mappings                              "
@@ -239,6 +246,14 @@ nnoremap <silent> <Leader>oT :FSSplitAbove<cr>
 nnoremap <silent> <Leader>ob :FSBelow<cr>
 " Switch to the file and load it into a new window split below
 nnoremap <silent> <Leader>oB :FSSplitBelow<cr>
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                                 Gundo                                   "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" f5 toggles the Gundo plugin window
+nnoremap <F5> :GundoToggle<CR>
+let g:gundo_width=80
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                yankring                                 "
