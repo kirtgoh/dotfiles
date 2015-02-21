@@ -27,6 +27,7 @@ Plugin 'kirtgoh/vim-cpp-syntax'
 Plugin 'kirtgoh/vim-kgoh-colorscheme'
 " vim-ariline needed to show git branch
 Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-unimpaired'
 Plugin 'bling/vim-airline'
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'FSwitch'
